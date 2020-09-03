@@ -1,7 +1,0 @@
-package com.ekenya.echama.ui.login
-
-import androidx.fragment.app.Fragment
-
-class forgot_password:Fragment() {
-
-}
