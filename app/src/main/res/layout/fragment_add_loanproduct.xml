@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_bg"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.group.contribution.CreateContributionFragment">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/contentCV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveLoanProduct"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstLayCL"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                    <TextView
+                        android:id="@+id/txtSelectContributionDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Select a contribution whose money which will be attached to this loan product"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                    <TextView
+                        android:padding="15dp"
+                        android:id="@+id/txtSelectContribution"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/dashed_rounded_background"
+                        android:text="Select Contribution"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSelectContributionDesc" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlProductName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSelectContribution">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etProductName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Loan Product Name" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlMinAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tlPaymentPeriodType"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tlProductName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMinAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="7"
+                        android:hint="Minimum Amount" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlMaxAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
+                    android:clickable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tlMinAmount"
+                    app:layout_constraintTop_toBottomOf="@+id/tlProductName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMaxAmount"
+                        android:layout_width="match_parent"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:clickable="true"
+                        android:inputType="number"
+                        android:layout_height="wrap_content"
+                        android:hint="Maximum Amount" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tlPaymentPeriod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/tlPaymentPeriodType"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tlMinAmount">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPaymentPeriod"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="2"
+                            android:inputType="number"
+                            android:hint="Payment Period" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tlPaymentPeriodType"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:clickable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tlPaymentPeriod"
+                        app:layout_constraintTop_toTopOf="@+id/tlPaymentPeriod">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPaymentPeriodType"
+                            android:layout_width="match_parent"
+                            android:focusable="true"
+                            android:focusableInTouchMode="false"
+                            android:clickable="true"
+                            android:layout_height="wrap_content"
+                            android:hint="Period Type" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/ivContributionType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/ic_action_chevron_right"
+                        android:tint="@color/colorPrimaryDark"
+                        app:layout_constraintBottom_toBottomOf="@+id/tlPaymentPeriodType"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tlPaymentPeriodType" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tlInterest"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/tlInterestType"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tlPaymentPeriod">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etInterest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="2"
+                            android:inputType="number"
+                            android:hint="Interest" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tlInterestType"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:clickable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tlInterest"
+                        app:layout_constraintTop_toTopOf="@+id/tlInterest">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etInterestType"
+                            android:layout_width="match_parent"
+                            android:focusable="true"
+                            android:focusableInTouchMode="false"
+                            android:clickable="true"
+                            android:layout_height="wrap_content"
+                            android:hint="Interest Type" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/ivInterestType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/ic_action_chevron_right"
+                        android:tint="@color/colorPrimaryDark"
+                        app:layout_constraintBottom_toBottomOf="@+id/tlInterestType"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tlInterestType" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlProductDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tlInterest">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etProductDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|top"
+                        android:inputType="textMultiLine"
+                        android:lines="5"
+                        android:hint="Product Description" />
+                </com.google.android.material.textfield.TextInputLayout>
+               </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/MaterialButtonLoginRed"
+        android:id="@+id/btnSaveLoanProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/red_rounded_button_bg"
+        android:text="Save"
+        app:layout_constraintTop_toBottomOf="@+id/contentCV"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

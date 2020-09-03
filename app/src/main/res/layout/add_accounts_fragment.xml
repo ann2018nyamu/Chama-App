@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addexternalaccountsactvity"
+    android:background="@drawable/white_bg"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bankCL"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/ivBank"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/ic_bank"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvBank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Bank Account"
+            android:textColor="@color/colorBlackText"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivBank"
+            app:layout_constraintTop_toTopOf="@+id/ivBank" />
+
+        <TextView
+            android:id="@+id/tvBankDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Track Bank Records"
+            android:textColor="@color/colorPrimaryMain"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBank"
+            app:layout_constraintStart_toStartOf="@+id/tvBank"
+            app:layout_constraintTop_toBottomOf="@+id/tvBank"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="@+id/ivBankNext"
+            app:layout_constraintStart_toStartOf="@+id/tvBankDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvBankDesc" />
+
+        <ImageView
+            android:id="@+id/ivBankNext"
+            android:layout_width="11dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_new_screen_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBank"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivBank" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/saccoCL"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/bankCL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/ivSacco"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/ic_sacco_account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSacco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/sacco_account"
+            android:textColor="@color/colorBlackText"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivSacco"
+            app:layout_constraintTop_toTopOf="@+id/ivSacco" />
+
+        <TextView
+            android:id="@+id/tvSaccoDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/track_savings_in_one_account"
+            android:textColor="@color/colorPrimaryMain"
+            app:layout_constraintBottom_toBottomOf="@+id/ivSacco"
+            app:layout_constraintStart_toStartOf="@+id/tvSacco"
+            app:layout_constraintTop_toBottomOf="@+id/tvSacco"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="@+id/ivSaccoNext"
+            app:layout_constraintStart_toStartOf="@+id/tvSaccoDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvSaccoDesc" />
+
+        <ImageView
+            android:id="@+id/ivSaccoNext"
+            android:layout_width="11dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_new_screen_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/ivSacco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivSacco" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mmoneyCL"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/saccoCL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/ivMobileMoney"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/ic_mobile_money"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMobileMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/mobile_money"
+            android:textColor="@color/colorBlackText"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivMobileMoney"
+            app:layout_constraintTop_toTopOf="@+id/ivMobileMoney" />
+
+        <TextView
+            android:id="@+id/tvMobileMoneyDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/keep_an_update_of_mobile_money"
+            android:textColor="@color/colorPrimaryMain"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMobileMoney"
+            app:layout_constraintStart_toStartOf="@+id/tvMobileMoney"
+            app:layout_constraintTop_toBottomOf="@+id/tvMobileMoney"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="@+id/ivMobileMoneyNext"
+            app:layout_constraintStart_toStartOf="@+id/tvMobileMoneyDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvMobileMoneyDesc" />
+
+        <ImageView
+            android:id="@+id/ivMobileMoneyNext"
+            android:layout_width="11dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_new_screen_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMobileMoney"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivMobileMoney" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pettycashCL"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mmoneyCL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/ivPettyCash"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/ic_mobile_money"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPettyCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/petty_cash"
+            android:textColor="@color/colorBlackText"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivPettyCash"
+            app:layout_constraintTop_toTopOf="@+id/ivPettyCash" />
+
+        <TextView
+            android:id="@+id/tvPettyCashDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/track_petty_cash_in_one_place"
+            android:textColor="@color/colorPrimaryMain"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPettyCash"
+            app:layout_constraintStart_toStartOf="@+id/tvPettyCash"
+            app:layout_constraintTop_toBottomOf="@+id/tvPettyCash"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="@+id/ivPettyCashNext"
+            app:layout_constraintStart_toStartOf="@+id/tvPettyCashDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvPettyCashDesc" />
+
+        <ImageView
+            android:id="@+id/ivPettyCashNext"
+            android:layout_width="11dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_new_screen_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPettyCash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivPettyCash" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/investmentCL"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/pettycashCL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/ivInvestment"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/ic_mobile_money"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvInvestment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Investment Account"
+            android:textColor="@color/colorBlackText"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivInvestment"
+            app:layout_constraintTop_toTopOf="@+id/ivInvestment" />
+
+        <TextView
+            android:id="@+id/tvInvestmentDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/monitor_investment_portifolio"
+            android:textColor="@color/colorPrimaryMain"
+            app:layout_constraintBottom_toBottomOf="@+id/ivInvestment"
+            app:layout_constraintStart_toStartOf="@+id/tvInvestment"
+            app:layout_constraintTop_toBottomOf="@+id/tvInvestment"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="@+id/ivInvestmentNext"
+            app:layout_constraintStart_toStartOf="@+id/tvInvestmentDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvInvestmentDesc" />
+
+        <ImageView
+            android:id="@+id/ivInvestmentNext"
+            android:layout_width="11dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_new_screen_indicator"
+            app:layout_constraintBottom_toBottomOf="@+id/ivInvestment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivInvestment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    ADDING BANK ACCOUNT LAYOUT-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:id="@+id/addBankAccountCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlBankName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etBankName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Bank Name"
+                        android:maxLength="40"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlBranch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="@+id/tlBankName"
+                    app:layout_constraintStart_toStartOf="@+id/tlBankName"
+                    app:layout_constraintTop_toBottomOf="@+id/tlBankName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etBranchName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Bank Branch name"
+                        android:maxLength="30"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlAccountName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlBranch"
+                    app:layout_constraintStart_toStartOf="@+id/tlBranch"
+                    app:layout_constraintTop_toBottomOf="@+id/tlBranch">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAccountName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="30"
+                        android:hint="@string/account_name"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlAccountNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlAccountName"
+                    app:layout_constraintStart_toStartOf="@+id/tlAccountName"
+                    app:layout_constraintTop_toBottomOf="@+id/tlAccountName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAccountNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="20"
+                        android:hint="@string/account_number"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlAccountNumber"
+                    app:layout_constraintStart_toStartOf="@+id/tlAccountNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/tlAccountNumber">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/current_balance"
+                        android:maxLength="10"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ADDING SACCO ACCOUNT-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:id="@+id/addSaccoAccountCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlSaccoName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSaccoName"
+                        android:layout_width="match_parent"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Sacco Name"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlSaccoBranch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlSaccoName"
+                    app:layout_constraintStart_toStartOf="@+id/tlSaccoName"
+                    app:layout_constraintTop_toBottomOf="@+id/tlSaccoName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSaccoBranchName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Sacco branch"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlSaccoAccountName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlSaccoBranch"
+                    app:layout_constraintStart_toStartOf="@+id/tlSaccoBranch"
+                    app:layout_constraintTop_toBottomOf="@+id/tlSaccoBranch">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSaccoAccountName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/account_name"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlSaccoAccountNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlSaccoAccountName"
+                    app:layout_constraintStart_toStartOf="@+id/tlSaccoAccountName"
+                    app:layout_constraintTop_toBottomOf="@+id/tlSaccoAccountName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSaccoAccountNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/account_number"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlSaccoAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlSaccoAccountNumber"
+                    app:layout_constraintStart_toStartOf="@+id/tlSaccoAccountNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/tlSaccoAccountNumber">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSaccoAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/current_balance"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ADDING MOBILE MONEY ACCOUNT-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:id="@+id/addMobileMoneyAccountCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlMmSelectProvider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMnoProvider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:hint="Enter Provider(Optional)"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlMmBusinessName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlMmSelectProvider"
+                    app:layout_constraintStart_toStartOf="@+id/tlMmSelectProvider"
+                    app:layout_constraintTop_toBottomOf="@+id/tlMmSelectProvider">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etBusinessName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/business_name"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlMmAccountNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlMmBusinessName"
+                    app:layout_constraintStart_toStartOf="@+id/tlMmBusinessName"
+                    app:layout_constraintTop_toBottomOf="@+id/tlMmBusinessName"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMmAccountNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone or Paybill or Lipa na Mpesa No"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlMmoneyAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlMmAccountNumber"
+                    app:layout_constraintStart_toStartOf="@+id/tlMmAccountNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/tlMmAccountNumber">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMmoneyAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/current_balance"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ADDING PETTY CASH  ACCOUNT-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:id="@+id/addPcAccountCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlPcHolderName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPcHolderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Petty Cash Holder Name"
+                        android:maxLength="40"
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlPcAccNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlPcHolderName"
+                    app:layout_constraintStart_toStartOf="@+id/tlPcHolderName"
+                    app:layout_constraintTop_toBottomOf="@+id/tlPcHolderName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPcAccNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Petty Cash Holder Phone Number"
+                        android:maxLength="15"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlPcAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlPcAccNo"
+                    app:layout_constraintStart_toStartOf="@+id/tlPcAccNo"
+                    app:layout_constraintTop_toBottomOf="@+id/tlPcAccNo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPcAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/current_balance"
+                        android:inputType="number"
+                        android:maxLength="7"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ADDING INVESTMENT   ACCOUNT-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:id="@+id/addInvestmentAccountCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlInvestmentManager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvestmentManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Investment Manager"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlInvestmentName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tlInvestmentManager"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvestmentName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Investment Name"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlInvestmentAccNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tlInvestmentName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvestmentAccNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Investment Manager Phone Number"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlInvestmentAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlInvestmentAccNo"
+                    app:layout_constraintStart_toStartOf="@+id/tlInvestmentAccNo"
+                    app:layout_constraintTop_toBottomOf="@+id/tlInvestmentAccNo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvestmentAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/current_balance"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tlInvestmentDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tlInvestmentAmount"
+                    app:layout_constraintStart_toStartOf="@+id/tlInvestmentAmount"
+                    app:layout_constraintTop_toBottomOf="@+id/tlInvestmentAmount"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvestmentDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Description"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnSaveAccount"
+        style="@style/MaterialButtonLoginRed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/red_gradient_rounded_button"
+        android:text="@string/save"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

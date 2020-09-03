@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.group.CreateGroupFragment">
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_toolbar"
+        android:id="@+id/layout_header"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlGroupName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imgAddGroupImage"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGroupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/type_group_name"
+
+                android:inputType="textShortMessage"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imgAddGroupImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/group_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlGroupDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tlGroupName"
+            app:layout_constraintStart_toStartOf="@+id/tlGroupName"
+            app:layout_constraintTop_toBottomOf="@+id/tlTown"
+            >
+        <EditText
+            android:id="@+id/etxtGroupDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:gravity="top"
+            android:inputType="text|textMultiLine"
+            android:hint="@string/group_description"
+
+             />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:visibility="gone"
+            android:id="@+id/view20"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="@+id/ivGroupTypeDown"
+            app:layout_constraintStart_toStartOf="@+id/tlGroupDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tlGroupDesc" />
+
+
+
+        <View
+            android:id="@+id/view19"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivGroupTypeDown"
+            app:layout_constraintStart_toStartOf="@+id/tlGroupDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tlGroupName" />
+
+        <ImageView
+            android:id="@+id/ivGroupTypeDown"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/ic_action_chevron_right"
+            android:tint="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="@+id/tlGroupDesc"
+            app:layout_constraintEnd_toEndOf="@+id/tlGroupDesc"
+            app:layout_constraintTop_toTopOf="@+id/tlGroupDesc" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlTown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/tlGroupName"
+            app:layout_constraintStart_toStartOf="@+id/tlGroupName"
+            app:layout_constraintTop_toBottomOf="@+id/imgAddGroupImage"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/town_city"
+                android:inputType="textShortMessage"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlSelectCountry"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            app:layout_constraintEnd_toEndOf="@+id/tlGroupName"
+            app:layout_constraintStart_toStartOf="@+id/tlGroupName"
+            app:layout_constraintTop_toBottomOf="@+id/imgAddGroupImage"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSelectCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_country" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_action_chevron_right"
+            android:tint="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="@+id/tlSelectCountry"
+            app:layout_constraintEnd_toEndOf="@+id/tlSelectCountry"
+            app:layout_constraintTop_toTopOf="@+id/tlSelectCountry" />
+
+        <ImageView
+            android:id="@+id/imgAddMember"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tlGroupDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tlGroupDesc" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/add_members"
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="@+id/imgAddMember"
+            app:layout_constraintStart_toEndOf="@+id/imgAddMember"
+            app:layout_constraintTop_toTopOf="@+id/imgAddMember" />
+        <ImageView
+            android:id="@+id/imguploadDoc"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/tlGroupDesc"
+            android:layout_marginLeft="20dp" />
+        <TextView
+            android:id="@+id/txtUploadDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="Upload Document"
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="@+id/imguploadDoc"
+            app:layout_constraintStart_toEndOf="@+id/imguploadDoc"
+            app:layout_constraintTop_toTopOf="@+id/imguploadDoc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvAddedContacts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/MaterialButtonDefaultStyle"
+        android:id="@+id/btnCreateGroup"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/create_group"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/red_rounded_button_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/loanProductInfoL"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvLoanProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Educational Loan"
+        android:textColor="@color/colorTextColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnItemApplyLoan"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLoanProductDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="For students"
+        android:textColor="@color/colorDescColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnItemApplyLoan"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvLoanProductName"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoanProductName" />
+
+
+
+    <TextView
+        android:id="@+id/tvMinMaxAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_4_000"
+        android:layout_marginStart="20dp"
+        android:textSize="@dimen/small_text_size"
+        android:textColor="@color/colorBlackText"
+        app:layout_constraintStart_toEndOf="@+id/tvInterestPeriod"
+        app:layout_constraintTop_toTopOf="@+id/tvInterestPeriod" />
+
+
+    <TextView
+        android:id="@+id/tvInterestRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Interest Rate"
+        android:textColor="@color/colorBlackText"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoanProductDesc"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/tvInterestPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Interest Period"
+        android:textColor="@color/colorBlackText"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInterestRate"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <Button
+        android:id="@+id/btnItemApplyLoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialButtonDefaultStyle"
+        android:text="Apply Loan"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

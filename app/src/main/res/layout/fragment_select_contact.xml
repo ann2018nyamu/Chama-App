@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.group.SelectContactFragment">
+
+    <include
+        android:visibility="gone"
+        layout="@layout/layout_header"
+        android:id="@+id/layout_header"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rcvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:background="#aaffffff"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="@dimen/group_icon"
+            android:layout_height="@dimen/group_icon"
+            app:srcCompat="@mipmap/group_profile"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="@dimen/splash_img_margin"
+            android:id="@+id/group_icon"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_member_name"
+            android:text="Member Name"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/splash_img_margin"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@id/group_icon"
+            app:layout_constraintLeft_toRightOf="@id/group_icon"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/txt_meember_phone"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txt_member_name"
+            app:layout_constraintLeft_toRightOf="@id/group_icon"
+            android:text="Phone number"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txt_member_name"
+            android:layout_marginRight="@dimen/splash_img_margin"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/img_check"
+            android:layout_marginEnd="@dimen/splash_img_margin" />
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/view__divider"
+            android:background="@color/colorDivider"
+            app:layout_constraintTop_toBottomOf="@id/group_icon"
+            tools:layout_editor_absoluteY="77dp"/>
+
+        <TextView
+            android:id="@+id/roleSpinner"
+            android:layout_width="0dp"
+            android:text="Role"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/img_check"
+            app:layout_constraintTop_toTopOf="@+id/img_check" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rcvTitle"
+        tools:listitem="@layout/layout_contact" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        style="@style/MaterialButtonDefaultStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

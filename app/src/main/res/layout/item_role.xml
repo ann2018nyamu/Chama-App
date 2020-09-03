@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:id="@+id/contentLay"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="5dp"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/txtRuleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lines="2"
+        android:textStyle="bold"
+        />
+    <CheckBox
+        android:id="@+id/cbCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/can_create"
+        />
+    <CheckBox
+        android:id="@+id/cbEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/can_edit"
+        />
+    <CheckBox
+        android:id="@+id/cbView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/can_view"
+        />
+    <CheckBox
+        android:id="@+id/cbDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/can_delete"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorDivider"
+        />
+
+</LinearLayout>
+
+

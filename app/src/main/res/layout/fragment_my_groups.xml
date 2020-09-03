@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.MyGroups">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clFirst"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#002e9e"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:id="@+id/txtUsername"
+            android:text="Welcome Username"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:id="@+id/txtLastLoginDate"
+            android:text="Last Login: 20 Mar 2020"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtFDesc"
+        android:text="What would you like to do today"
+        android:background="#DC1431"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clFirst"
+        />
+    <TextView
+        android:id="@+id/txtTitle"
+        android:text="My Groups"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFDesc"
+        />
+    <TextView
+        android:id="@+id/txtInvitationTitle"
+        android:text="Group Invites"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txtTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtFDesc"
+        />
+    <Button
+        android:id="@+id/btnCreateGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MaterialButtonDefaultStyle"
+        android:text="+ New Group"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFDesc"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvMyGroups"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateGroup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:itemcount="1"
+        tools:listitem="@layout/layout_all_groups"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvMyGroupsInvite"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateGroup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:itemcount="2"
+        tools:listitem="@layout/layout_group_invites"
+        />
+
+    <Button
+        android:id="@+id/btn_show_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        android:text="@string/show_more"
+        android:clickable="true"
+        android:focusable="true"
+        style="@style/MaterialButtonDefaultStyle"
+        android:padding="8dp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rcvMyGroups" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

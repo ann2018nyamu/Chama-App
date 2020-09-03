@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/kyrial_sans_pro_black"
+        android:text="@string/withdraw_request"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/onboarding_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDialogMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/kyrial_sans_pro_light"
+        android:textColor="@color/colorBlack"
+        android:text="@string/you_are_about_to_withdraw_the_following_amount"
+        android:textSize="@dimen/onboarding_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvDialogTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogTitle" />
+
+    <TextView
+        android:id="@+id/tvDialogAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/kyrial_sans_pro_bold"
+        android:text="@string/_5000"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/onboarding_title"
+        app:layout_constraintEnd_toEndOf="@+id/tvDialogMessage"
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogMessage" />
+
+    <TextView
+        android:id="@+id/tvDialogCurrency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/kyrial_sans_pro_light"
+        android:textColor="@color/colorBlack"
+        android:text="@string/kes"
+        android:textSize="@dimen/onboarding_title"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDialogAmount"
+        app:layout_constraintEnd_toStartOf="@+id/tvDialogAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvDialogAmount" />
+
+    <TextView
+        android:id="@+id/btnReject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/kyrial_sans_pro_light"
+        android:padding="@dimen/normal_text_size"
+        android:text="@string/reject"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryMain"
+        android:textSize="@dimen/normal_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/btnApprove"
+        app:layout_constraintTop_toTopOf="@+id/btnApprove" />
+
+    <Button
+        android:id="@+id/btnApprove"
+        style="@style/MaterialButtonDefaultStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/kyrial_sans_pro_light"
+        android:padding="@dimen/normal_text_size"
+        android:text="@string/approve"
+        android:textSize="@dimen/normal_text_size"
+        app:layout_constraintEnd_toEndOf="@+id/tvDialogAmount"
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogAmount" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

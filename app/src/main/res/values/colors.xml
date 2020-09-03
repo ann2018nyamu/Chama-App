@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#002e9e</color>
+    <color name="colorPrimaryDark">#00288a</color>
+    <color name="colorAccent">#F6CE9A</color>
+    <color name="colorWhite">#ffffff</color>
+
+    <color name="colorCarouselIndicator">#c1c1c1</color>
+
+    <color name="colorHint">#ff000000</color>
+
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorOnBoarding">#231f20</color>
+
+    <color name="colorBackground">#fafafa</color>
+
+    <color name="colorPrimaryMain">#002e9e</color>
+
+    <color name="colorPrimaryDarkMain">#00288a</color>
+
+    <color name="colorAccentMain">#dc1431</color>
+    <color name="red">#bb0000</color>
+
+    <color name="colorDescColor">#0052c2</color>
+
+    <color name="colorTextColor">#475352</color>
+
+    <color name="colorGreen">#0e7763</color>
+
+    <color name="colorDivider">#DDDDDD</color>
+
+    <color name="colorRejectTitle">#c1c1c1</color>
+    <color name="colorSpringGreen">#00FF7F</color>
+    <color name="colorBlackText">#475352</color>
+    <!-- Green Theme-->
+    <color name="colorPrimaryGreen">#4CAF50</color>
+
+    <color name="colorPrimaryDarkGreen">#388E3C</color>
+    <!-- color Orange-->
+    <color name="colorPrimaryOrange">#FF9800</color>
+    <color name="colorPrimaryDarkOrange">#F57C00</color>
+    <color name="tontinePrimary">#ff424141</color>
+    <color name="tontinePrimaryDark">#ff000000</color>
+
+    <color name="button_blue">#ff0468c1</color>
+    <color name="spiner_dialog_color">@color/colorBlackText</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGray">#808080</color>
+</resources>
