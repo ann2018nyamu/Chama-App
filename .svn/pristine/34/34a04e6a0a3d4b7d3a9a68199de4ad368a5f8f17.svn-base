@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorWhite"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+   <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clWalletF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#002e9e"
+                 android:elevation="4dp"
+                 android:padding="20dp"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent"
+                >
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/clWalletLock"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="visible"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           >
+
+
+       <TextView
+           android:id="@+id/lblWalletBalanceF"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Wallet Balance \n\n XXXXXXXX"
+           android:textSize="@dimen/small_text_size"
+           android:textColor="#afff"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+       <ImageView
+           android:id="@+id/imgUnLock"
+           android:layout_width="40dp"
+           android:layout_height="wrap_content"
+           android:src="@drawable/ic_lock"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/lblWalletBalanceF"
+           />
+       <TextView
+           android:id="@+id/txtUnlockBalance"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:text="Unlock to view balance"
+           android:textSize="@dimen/small_text_size"
+           android:textColor="#afff"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/imgUnLock"
+
+           />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/clWalletUnlock"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="#002e9e"
+           android:visibility="gone"
+           android:elevation="4dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           >
+
+                <TextView
+                    android:id="@+id/lblWalletBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:text="@string/wallet_balance"
+                    android:textColor="@color/colorWhite"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txtWalletBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wallet_balance_sample"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/header_text_size"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblWalletBalance" />
+       <ImageView
+           android:id="@+id/imgLock"
+           android:layout_width="20dp"
+
+           android:layout_height="wrap_content"
+           android:src="@drawable/ic_lock"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="@+id/txtWalletBalance"
+           app:layout_constraintBottom_toBottomOf="@+id/txtWalletBalance"
+           />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDeposit"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryMain"
+                    android:text="@string/deposit_money"
+                    android:layout_marginTop="10dp"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtWalletBalance"
+                    app:icon="@drawable/ic_wallet_blue"
+                    app:iconTint="@color/colorPrimaryDark"
+                    style="@style/MaterialButtonLoginWhite"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/MaterialButtonDefaultStyle"
+
+                    android:id="@+id/btnWithdraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_withdraw_white"
+                    app:iconTint="@color/colorWhite"
+                    android:text="@string/withdraw_money"
+                    app:layout_constraintRight_toLeftOf="@+id/btnDeposit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btnDeposit" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<TextView
+    android:id="@+id/txtSubTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/recent_activities"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="10dp"
+    android:paddingStart="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
+    android:textColor="#000"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/clWalletF"
+    tools:ignore="RtlSymmetry" />
+    <Button
+        android:id="@+id/btnFullStatement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Full Statement"
+        android:backgroundTint="@android:color/transparent"
+        android:background="@android:color/transparent"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:paddingEnd="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clWalletF"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/txtNoTrxDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle"
+        android:textSize="@dimen/header_text_size"
+        android:text="No Transactions"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvRecentActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle"
+        tools:listitem="@layout/layout_recent_activity"
+        android:layout_marginLeft="10dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

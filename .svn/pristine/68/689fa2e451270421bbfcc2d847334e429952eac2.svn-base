@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="20dp"
+    android:paddingEnd="20dp"
+    android:paddingStart="20dp"
+    android:background="@drawable/white_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/clContent"
+       android:layout_marginTop="10dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <androidx.cardview.widget.CardView
+           android:layout_width="0dp"
+           android:id="@+id/loanProductInfoL"
+           android:layout_height="wrap_content"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias="1.0">
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:paddingBottom="10dp"
+           android:paddingTop="10dp"
+           android:paddingEnd="10dp"
+           android:paddingStart="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tvLoanProductName"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Educational Loan"
+               android:textColor="@color/colorDescColor"
+
+               android:textStyle="bold"
+               app:layout_constraintEnd_toStartOf="@+id/tvAmount"
+               app:layout_constraintHorizontal_bias="0.0"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:id="@+id/tvLoanProductDesc"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="8dp"
+               android:layout_marginEnd="8dp"
+               android:text="For students"
+               android:textSize="@dimen/small_text_size"
+               android:textStyle="bold"
+               app:layout_constraintHorizontal_bias="0.0"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="@+id/tvInterestRate"
+               app:layout_constraintTop_toBottomOf="@+id/tvInterestRate" />
+
+
+
+           <TextView
+               android:id="@+id/tvMinMaxAmount"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/kyrial_sans_pro_semi_bold"
+               android:text="@string/_4_000"
+               android:textColor="@color/colorBlackText"
+               android:textStyle="bold"
+               android:textSize="@dimen/small_text_size"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+
+           <TextView
+               android:id="@+id/tvInterestRate"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="8dp"
+               android:layout_marginBottom="8dp"
+               android:text="Interest Rate"
+               android:textStyle="bold"
+               android:textColor="@color/colorBlackText"
+               android:textSize="@dimen/small_text_size"
+               app:layout_constraintTop_toTopOf="@+id/tvInterestPeriod"
+               app:layout_constraintStart_toStartOf="@+id/view6"
+               />
+           <TextView
+               android:id="@+id/tvInterestPeriod"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="5dp"
+               android:text="Interest Period"
+               android:textStyle="bold"
+               android:textColor="@color/colorBlackText"
+               android:textSize="@dimen/small_text_size"
+               app:layout_constraintTop_toBottomOf="@+id/tvMinMaxAmount"
+               app:layout_constraintStart_toStartOf="@+id/tvMinMaxAmount"
+               />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+       </androidx.cardview.widget.CardView>
+
+
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/tlAmount"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:hint="Enter amount"
+           app:layout_constraintTop_toBottomOf="@+id/loanProductInfoL"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           >
+           <EditText
+               android:id="@+id/etxtAmount"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="numberDecimal"
+               android:maxLength="6"
+               />
+       </com.google.android.material.textfield.TextInputLayout>
+       <TextView
+           android:id="@+id/tvReminder"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="16dp"
+           android:text="Set Reminder"
+           android:textColor="@color/colorBlack"
+           app:layout_constraintTop_toBottomOf="@+id/tlAmount"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           />
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/reminderLayCL"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@+id/tvReminder"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           >
+
+           <TextView
+               android:id="@+id/tvReminderStartDate"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="16dp"
+               android:text="@string/start_date"
+               app:layout_constraintEnd_toEndOf="@+id/txtReminderStartDate"
+               app:layout_constraintStart_toStartOf="@+id/txtReminderStartDate"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:padding="15dp"
+               android:id="@+id/txtReminderStartDate"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="8dp"
+               android:layout_marginEnd="20dp"
+               android:background="@drawable/dashed_rounded_background"
+               android:text="@string/pick_a_date"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toStartOf="@+id/txtReminderEndDate"
+               app:layout_constraintTop_toBottomOf="@+id/tvReminderStartDate"
+               />
+           <TextView
+               android:id="@+id/tvReminderEndDate"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:text="@string/end_date"
+               app:layout_constraintEnd_toEndOf="@+id/txtReminderEndDate"
+               app:layout_constraintStart_toStartOf="@+id/txtReminderEndDate"
+               app:layout_constraintTop_toTopOf="@+id/tvReminderStartDate" />
+
+           <TextView
+               android:padding="15dp"
+               android:id="@+id/txtReminderEndDate"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:background="@drawable/dashed_rounded_background"
+               android:text="@string/pick_a_date"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toEndOf="@+id/txtReminderStartDate"
+               app:layout_constraintTop_toTopOf="@+id/txtReminderStartDate" />
+
+           <TextView
+               android:padding="15dp"
+               android:id="@+id/txtPickReminderSchedule"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="16dp"
+               android:background="@drawable/dashed_rounded_background"
+               android:text="@string/pick_a_schedule"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/txtReminderStartDate" />
+
+           <ImageView
+               android:id="@+id/ivPickReminderSchedule"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginEnd="16dp"
+               android:layout_marginRight="16dp"
+               android:src="@drawable/ic_action_chevron_right"
+               android:tint="@color/colorPrimaryDark"
+               app:layout_constraintBottom_toBottomOf="@+id/txtPickReminderSchedule"
+               app:layout_constraintEnd_toEndOf="@+id/txtPickReminderSchedule"
+               app:layout_constraintTop_toTopOf="@+id/txtPickReminderSchedule" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnApplyLoan"
+        style="@style/MaterialButtonLoginRed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kyrial_sans_pro_semi_bold"
+        android:text="Apply Loan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:iconTint="@color/colorWhite"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_helpfaq"
+            android:icon="@drawable/help_faq"
+            android:title="@string/help_faq" />
+
+        <item
+            android:visible="false"
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/drawer_settings"
+            android:title="@string/settings" />
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:iconTint="@color/colorWhite"
+            android:iconTintMode="multiply"
+            android:title="@string/nav_header_share" />
+        <item
+            android:id="@+id/nav_privatepolicy"
+            android:icon="@drawable/privacy_policy"
+            android:title="@string/private_policy" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/about_us"
+            android:title="@string/about_us" />
+        <item
+            android:id="@+id/contact_us"
+            android:icon="@drawable/contact_us"
+            android:title="@string/contact_us" />
+    </group>
+
+<!--    <item android:title="@string/nav_header_communicate">  </item>-->
+        <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/log_out"
+                    android:icon="@drawable/logout"
+                    android:title="@string/log_out" />
+
+        </group>
+
+
+</menu>

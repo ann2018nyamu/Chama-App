@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/reminderLayCL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_bg"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvFstatementDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Get your full statement"
+                android:textColor="@color/colorBlackText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvReminderStartDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/start_date"
+                app:layout_constraintEnd_toEndOf="@+id/txtFstatementStartDate"
+                app:layout_constraintStart_toStartOf="@+id/txtFstatementStartDate"
+                app:layout_constraintTop_toBottomOf="@+id/tvFstatementDesc" />
+
+            <TextView
+                android:padding="15dp"
+                android:id="@+id/txtFstatementStartDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/dashed_rounded_background"
+                android:text="@string/pick_a_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtFstatementEndDate"
+                app:layout_constraintTop_toBottomOf="@+id/tvReminderStartDate"
+                />
+            <TextView
+                android:id="@+id/tvReminderEndDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/end_date"
+                app:layout_constraintEnd_toEndOf="@+id/txtFstatementEndDate"
+                app:layout_constraintStart_toStartOf="@+id/txtFstatementEndDate"
+                app:layout_constraintTop_toTopOf="@+id/tvReminderStartDate" />
+
+            <TextView
+                android:padding="15dp"
+                android:id="@+id/txtFstatementEndDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dashed_rounded_background"
+                android:text="@string/pick_a_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtFstatementStartDate"
+                app:layout_constraintTop_toTopOf="@+id/txtFstatementStartDate" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/signup_email_prompt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFstatementStartDate"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <Button
+        style="@style/MaterialButtonLoginRed"
+        android:id="@+id/btnFullStatement"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/red_rounded_button_bg"
+        android:text="Send"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

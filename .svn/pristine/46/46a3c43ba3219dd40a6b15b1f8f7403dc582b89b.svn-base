@@ -1,0 +1,20 @@
+package com.ekenya.echama.model
+
+import com.squareup.moshi.Json
+
+
+class GroupInvitesModel(
+    @Json(name = "id") var id: Int,
+    @Json(name = "createdOn") val createdOn: String,
+    @Json(name = "softDelete")val softDelete: String?,
+    @Json(name = "name") val name: String,//country
+    @Json(name = "country") val country: String,
+    @Json(name = "city") val city: String,
+    @Json(name = "creator") val creator: String,
+    @Json(name = "groupType") val groupType:String
+
+) class GroupInvites(
+    val id: Int,
+    val name:String,
+    val invitee:String
+)

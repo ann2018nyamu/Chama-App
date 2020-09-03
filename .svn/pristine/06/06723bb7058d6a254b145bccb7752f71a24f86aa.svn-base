@@ -1,0 +1,98 @@
+package com.ekenya.echama.ui.group.penalty
+
+
+import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
+import android.content.DialogInterface
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.ekenya.echama.R
+import com.ekenya.echama.databinding.FragmentCreateContributionBinding
+import com.ekenya.echama.databinding.FragmentPenaltyBinding
+import com.ekenya.echama.model.ContributionDetails
+import com.ekenya.echama.model.ContributionType
+import com.ekenya.echama.model.Penalty
+import com.ekenya.echama.model.ScheduleType
+import com.ekenya.echama.util.*
+import com.ekenya.echama.viewModel.GroupViewModel
+import timber.log.Timber
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.properties.Delegates
+
+
+/**
+ * A simple [Fragment] subclass.
+ */
+class PenaltyFragment : Fragment() {
+//lateinit var etContributionType:EditText
+
+    internal var myCalendar = Calendar.getInstance()
+
+    private var _binding: FragmentPenaltyBinding? = null
+    private val binding get() = _binding!!
+    val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH)
+    val penaltyDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.ENGLISH)
+    var reminderDate = Date()
+    val contDetails = ContributionDetails()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true);
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentPenaltyBinding.inflate(inflater, container, false)
+        val rootView = binding.root
+        R.layout.fragment_create_contribution
+
+
+
+
+       // val btnSave = rootView.findViewById(R.id.btnSave) as Button
+
+
+        initData()
+
+
+        return rootView
+    }
+
+
+
+    private fun initData() {
+
+    }
+
+
+
+    private fun handleRequestResponse(value: String) {
+        Timber.v(value)
+        //USED GROUP TYPE MODEL SINCE THEY ARE HAVING SAME RESPOSE JSON
+       // val mList= gson.fromJson(value,Array<JsonElement>::class.java).toList()
+
+        //Return back to home fragment
+       // ResponseWrapper().getApiResponse()
+        ToastnDialog.toastSuccess(this.context!!,"Request was Successful")
+        findNavController().navigateUp()
+    }
+
+}

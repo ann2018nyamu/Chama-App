@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.group.UploadDocumentFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:textSize="@dimen/header_text_size"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/assign_group_roles"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/ivTreasurer"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        app:civ_border_width="0dp"
+                        app:layout_constraintEnd_toEndOf="@+id/tvChairPerson"
+                        app:layout_constraintStart_toStartOf="@+id/tvChairPerson"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4"
+                        app:srcCompat="@mipmap/user_profile_holder" />
+
+                    <TextView
+                        android:id="@+id/tvChairPerson"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/chairperson"
+                        android:singleLine="true"
+                        app:layout_constraintEnd_toEndOf="@+id/tvAssignChair"
+                        app:layout_constraintStart_toStartOf="@+id/tvAssignChair"
+                        app:layout_constraintTop_toBottomOf="@+id/ivTreasurer" />
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/ivChairPerson"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="32dp"
+                        app:civ_border_width="0dp"
+                        android:layout_marginRight="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/ivTreasurer"
+                        app:srcCompat="@mipmap/user_profile_holder" />
+
+                    <TextView
+                        android:id="@+id/tvTreasurer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:singleLine="true"
+                        android:text="@string/treasurer"
+                        app:layout_constraintEnd_toEndOf="@+id/tvAssignTreasurer"
+                        app:layout_constraintStart_toStartOf="@+id/tvAssignTreasurer"
+                        app:layout_constraintTop_toBottomOf="@+id/ivChairPerson" />
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/ivSecretary"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toStartOf="@+id/ivChairPerson"
+                        app:layout_constraintStart_toEndOf="@+id/ivTreasurer"
+                        app:layout_constraintTop_toTopOf="@+id/ivTreasurer"
+                        app:srcCompat="@mipmap/user_profile_holder" />
+
+                    <TextView
+                        android:id="@+id/tvSecretary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/secretary"
+                        android:singleLine="true"
+                        app:layout_constraintEnd_toEndOf="@+id/tvAssignSecretary"
+                        app:layout_constraintStart_toStartOf="@+id/tvAssignSecretary"
+                        app:layout_constraintTop_toBottomOf="@+id/ivSecretary" />
+
+                    <TextView
+                        android:id="@+id/tvAssignChair"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/assign_member"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvChairPerson"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/tvAssignSecretary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/assign_member"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintEnd_toStartOf="@+id/tvAssignTreasurer"
+                        app:layout_constraintStart_toEndOf="@+id/tvAssignChair"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSecretary" />
+
+                    <TextView
+                        android:id="@+id/tvAssignTreasurer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:text="@string/assign_member"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTreasurer" />
+
+                    <ImageView
+                        android:id="@+id/ivAddChairPerson"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/tvAssignChair"
+                        app:layout_constraintHorizontal_bias="0.557"
+                        app:layout_constraintStart_toStartOf="@+id/tvAssignChair"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAssignChair"
+                        app:srcCompat="@mipmap/add" />
+
+                    <ImageView
+                        android:id="@+id/ivAddSecretary"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@mipmap/add"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivAddChairPerson"
+                        app:layout_constraintEnd_toEndOf="@+id/tvAssignSecretary"
+                        app:layout_constraintStart_toStartOf="@+id/tvAssignSecretary"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAssignSecretary" />
+
+                    <ImageView
+                        android:id="@+id/ivAddTreasurer"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@mipmap/add"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivAddSecretary"
+                        app:layout_constraintEnd_toEndOf="@+id/tvAssignTreasurer"
+                        app:layout_constraintStart_toStartOf="@+id/tvAssignTreasurer"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAssignTreasurer" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btnInviteMembers"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/cardView"
+
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/upload_legal_documents"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/header_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view9"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                    <ImageView
+                        android:id="@+id/ivAddDocument"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@mipmap/add"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+                    <TextView
+                        android:id="@+id/tvAddDocument"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/add_a_document"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivAddDocument"
+                        app:layout_constraintStart_toEndOf="@+id/ivAddDocument"
+                        app:layout_constraintTop_toTopOf="@+id/ivAddDocument" />
+
+                    <View
+                        android:id="@+id/view10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorDivider"
+                        app:layout_constraintTop_toBottomOf="@+id/ivAddDocument"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvDocument"
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/MaterialButtonDefaultStyle"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/btnInviteMembers"
+                android:text="@string/continue_nex"
+                android:textColor="@color/colorWhite"
+               />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</ScrollView>

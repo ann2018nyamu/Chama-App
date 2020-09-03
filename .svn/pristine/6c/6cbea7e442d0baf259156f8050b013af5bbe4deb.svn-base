@@ -1,0 +1,153 @@
+package com.ekenya.echama.ui.group
+
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.afollestad.materialdialogs.MaterialDialog
+
+import com.ekenya.echama.R
+import com.ekenya.echama.adapter.ContributionDetailsAdapter
+import com.ekenya.echama.adapter.TransactionAdapter
+import com.ekenya.echama.databinding.FragmentContributionMembersDetailsBinding
+import com.ekenya.echama.databinding.FragmentGroupWalletBinding
+import com.ekenya.echama.model.Contribution
+import com.ekenya.echama.model.Transaction
+import com.ekenya.echama.util.CustomProgressBar
+import com.ekenya.echama.util.DataUtil
+import com.ekenya.echama.util.ToastnDialog
+import com.ekenya.echama.util.expiredTokenDialogue
+import com.ekenya.echama.viewModel.GroupViewModel
+import timber.log.Timber
+
+/**
+ * A simple [Fragment] subclass.
+ */
+class ContributionMembersDetails : Fragment() {
+    private lateinit var contribAdapter: ContributionDetailsAdapter
+    private  var activityList: ArrayList<Transaction> = ArrayList()
+ // lateinit var rcvContribution:RecyclerView
+//  lateinit var btnMakeContribution:Button
+    lateinit var contribution:Contribution
+    lateinit var groupViewModel: GroupViewModel
+    private var _binding: FragmentContributionMembersDetailsBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
+        _binding = FragmentContributionMembersDetailsBinding.inflate(inflater, container, false)
+        val rootView = binding.root
+        R.layout.fragment_contribution_members_details
+        //val rootView = inflater.inflate(R.layout.fragment_contribution_members_details, container, false)
+        // rcvContribution = rootView.findViewById(R.id.rcvContribution)
+
+        //binding.btnMakeContribution = rootView.findViewById(R.id.btnMakePayments)
+        var gson = "{\"id\":1,\"name\":\"Corona Research Fund\",\"startdate\":\"2020-09-17\",\"contributiondetails\":{\"amount\":2000.0,\"penalties\":{\"amount\":50.0,\"applied\":true}},\"contributiontypeid\":1,\"contributiontypename\":\"recurring contribution\",\"scheduletypeid\":1,\"scheduletypename\":\"weekly\",\"amounttypeid\":1,\"amounttypename\":\"fixed amount\",\"groupid\":1,\"groupname\":\"AllinOne Investments\",\"amountcontributed\":0.0,\"active\":false,\"createdby\":\"muriithi gicheru\"}"
+       // contribution = Contribution(0).fromJson(gson)
+       // arguments?.putString("contribution",gson)
+        arguments?.getString("contribution")?.let {
+            Timber.v("contribution json")
+            Timber.v(it)
+            contribution = Contribution(0).fromJson(it)
+        }
+        binding.btnMakePayments.setOnClickListener { findNavController().navigate(R.id.nav_maakeSingle_contribution) }
+
+        initData()
+        initTextView()
+        initContributionTrx()
+
+        return rootView
+    }
+
+    private fun initContributionTrx() {
+
+        binding.rcvContribution.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
+        contribAdapter   = ContributionDetailsAdapter(this,activityList)
+        binding.rcvContribution.adapter = contribAdapter
+
+    }
+
+    private fun initTextView() {
+        binding.tvAmountContributed.text = contribution.getFContributedAmount()
+        binding.tvContributionType.text = contribution.contributiontypename
+        binding.tvContributionEndDate.text = contribution.enddate
+        binding.tvContributionParticipants.text = "12/15 participants" //Todo get this data from api
+        binding.tvDueDate.text = contribution.getDueDate()
+    }
+
+    private fun initData() {
+        val jsonGroupDetails = HashMap<String,Any>()
+        jsonGroupDetails["contributionid"] = contribution.id
+        jsonGroupDetails["page"] = 0
+        jsonGroupDetails["size"] = 100
+
+        groupViewModel.getContributionTransactions(jsonGroupDetails).observe(viewLifecycleOwner, Observer {
+            Timber.v("getContributionTransactions size ${it.size}")
+            if(it.isNotEmpty()){
+                activityList = it as ArrayList<Transaction>
+                initContributionTrx()
+                binding.txtNoTrxDesc.visibility = View.GONE
+            }else{
+                binding.txtNoTrxDesc.visibility = View.VISIBLE
+            }
+        })
+        groupViewModel.myGroupApiResponseLD.observe(viewLifecycleOwner, Observer { myApiResponse ->
+            CustomProgressBar.hide()
+            Timber.v("myApiResponseLD  ${myApiResponse.code} ${myApiResponse.requestName} ${myApiResponse.message}")
+            if(myApiResponse.code == 200){
+                if(myApiResponse.requestName.contentEquals("getCTrxRequest")) {
+                    val gtrx = myApiResponse.responseObj as ArrayList<Transaction>
+                    Timber.v("getCTrxRequest ${gtrx.size}")
+                    if( gtrx.isEmpty()){
+                        Timber.v("binding.txtNoTrxDesc.visibility VISIBLE")
+                       // binding.txtNoTrxDesc.visibility = View.VISIBLE
+                        ToastnDialog.toastSuccess(this.requireContext(),myApiResponse.message)
+                    }else{
+                        Timber.v("binding.txtNoTrxDesc.visibility GONE")
+
+                       // binding.txtNoTrxDesc.visibility = View.GONE
+                    }
+                }
+
+//                if(myApiResponse.requestName.contentEquals("getGrpTrxRequest")){
+//
+//                }
+
+            }else  if(myApiResponse.code == 700) {
+                CustomProgressBar.show(this.requireContext())
+            }else{
+                if(myApiResponse.message.isNotEmpty()){
+                    ToastnDialog.toastError(this.context!!,"Error:"+myApiResponse.message)
+                    if(myApiResponse.message.toLowerCase().contains("token expired")){
+                        expiredTokenDialogue()
+                    }
+                }
+            }
+        })
+    }
+
+    private fun withdrawRequestDialog(message: String){
+        context?.applicationContext?.let {
+            MaterialDialog(it)
+                .show {
+                    title(R.string.withdraw_request)
+
+                }
+        }
+    }
+
+
+
+}

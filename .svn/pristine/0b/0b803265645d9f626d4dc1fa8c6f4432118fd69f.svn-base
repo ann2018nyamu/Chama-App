@@ -1,0 +1,20 @@
+package com.ekenya.echama.model
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
+
+
+@JsonClass(generateAdapter = true)
+@Entity(tableName = "recent_activities")
+data class RecentActivity(@PrimaryKey var  rActivityId: Int) {
+    var groupName: String = ""
+    var contributionName: String = ""
+    var amount: String = ""
+    var currency: String = ""
+    var time: String = ""
+    var imageUrl: String = ""
+    var userid: Int? = null
+    var groupid: Int? = null
+    var contributionid: Int? = null
+}

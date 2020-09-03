@@ -1,0 +1,54 @@
+package com.ekenya.echama.dao
+
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.ekenya.echama.model.Group
+import com.ekenya.echama.model.GroupInvite
+import com.ekenya.echama.model.RecentActivity
+import com.ekenya.echama.model.User
+
+@Dao
+interface RecentActivitiesDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(recentActivity: RecentActivity)
+
+    @Query("DELETE FROM recent_activities")
+    suspend fun deleteAll()
+    //fetches all activities
+    @Query("SELECT * FROM recent_activities")
+    fun getAllActivities(): LiveData<List<RecentActivity>>
+
+    //fetches all user activities
+     @Query("SELECT * FROM recent_activities WHERE userid = :userid ")
+     fun getAllUserActivities(userid:Int): LiveData<List<RecentActivity>>
+
+    //fetches all group activities
+    @Query("SELECT * FROM recent_activities WHERE groupid = :groupid ")
+    fun getAllGroupActivities(groupid:Int): LiveData<List<RecentActivity>>
+
+     //fetches all contribution activities
+    @Query("SELECT * FROM recent_activities WHERE contributionid = :contributionid ")
+    fun getAllContributionActivities(contributionid:Int): LiveData<List<RecentActivity>>
+
+
+    //GROUP ACTIVITIES
+    @Query("DELETE FROM groupinvite")
+    suspend fun deleteAllInvites()
+
+    @Query("DELETE FROM groupinvite WHERE id=:id")
+    suspend fun deleteInvite(id:Int)
+
+    @Query("SELECT * FROM groupinvite")
+    fun getGroupsInvite(): LiveData<List<GroupInvite>>
+
+//    /**
+//     * Updating only group
+//
+//     */
+//    @Query("UPDATE mygroup SET na=:token WHERE firstname = :firstname")
+//    fun updateGroup(token: String, firstname: String)
+
+}

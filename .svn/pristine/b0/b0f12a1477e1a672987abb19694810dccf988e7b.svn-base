@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgGroup"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/group_profile" />
+
+    <TextView
+        android:id="@+id/tvGroupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/invitation_eclectics_support_group"
+        android:textColor="@color/colorTextColor"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgGroup"
+        app:layout_constraintTop_toTopOf="@+id/imgGroup" />
+
+    <TextView
+        android:id="@+id/tvInvitee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/invitation_you_were_added"
+        android:textColor="@color/colorDescColor"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvGroupName"
+        app:layout_constraintTop_toBottomOf="@+id/tvGroupName" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/MaterialButtonViewHolderStyle"
+        android:id="@+id/btnAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/invitation_accept"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tvInvitee"
+        app:layout_constraintEnd_toStartOf="@+id/btnReject"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvInvitee"
+        app:layout_constraintTop_toTopOf="@+id/tvInvitee" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvInvitee"
+        app:layout_constraintTop_toBottomOf="@+id/imgGroup" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/MaterialButtonWhite"
+        android:id="@+id/btnReject"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:strokeWidth="3dp"
+        app:backgroundTint="#DC1431"
+        android:gravity="center"
+        android:text="@string/innvitation_reject"
+        android:textAllCaps="false"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAccept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnAccept"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

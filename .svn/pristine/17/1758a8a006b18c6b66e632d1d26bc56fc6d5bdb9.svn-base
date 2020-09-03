@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onboarding_navigation1"
+    app:startDestination="@+id/nav_splassh_fragment">
+    <fragment
+        android:id="@+id/nav_onboarding"
+        android:name="com.ekenya.echama.ui.onboarding.Onboarding"
+        android:label="Onboarding"
+        tools:layout="@layout/fragment_onboarding" />
+    <fragment
+        android:id="@+id/nav_landing"
+        android:name="com.ekenya.echama.ui.onboarding.LandingFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_landing">
+        <action
+            android:id="@+id/to_login_fragment"
+            app:destination="@id/nav_login"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.ekenya.echama.ui.register.RegisterFragment"
+        tools:layout="@layout/fragment_register"
+        android:label="Register"/>
+
+    <fragment
+        android:id="@+id/nav_register_two"
+        android:name="com.ekenya.echama.ui.register.RegisterStepTwo"
+        android:label="Signup"
+        tools:layout="@layout/fragment_register_step_two"/>
+    <fragment
+        android:id="@+id/nav_selectRegion"
+        android:name="com.ekenya.echama.ui.register.SelectRegionFragment"
+        android:label="Select Region"
+        tools:layout="@layout/fragment_select_region"/>
+    <fragment
+        android:id="@+id/nav_selectDepartment"
+        android:name="com.ekenya.echama.ui.register.SelectDepartmentFragment"
+        tools:layout="@layout/fragment_select_department"
+        android:label="select department"/>
+    <fragment
+        android:id="@+id/nav_selectnationality"
+        android:name="com.ekenya.echama.ui.register.SelectNationalityFragment"
+        tools:layout="@layout/fragment_select_country"
+        android:label="Select Nationality"/>
+    <fragment
+        android:id="@+id/nav_otp_Verification"
+        android:name="com.ekenya.echama.ui.register.OtpFragment"
+        android:label="Enter otp"
+        tools:layout="@layout/fragment_otp"/>
+    <fragment
+        android:id="@+id/nav_changepin"
+        android:name="com.ekenya.echama.ui.register.ChangePinVerification"
+        android:label="Change Pin"
+        tools:layout="@layout/fragment_change_pin_verification">
+        <action
+            android:id="@+id/to_login_navigation"
+            app:destination="@id/nav_login"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_splassh_fragment"
+        android:name="com.ekenya.echama.ui.onboarding.SplashFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/to_onboarding_navigation1"
+            app:destination="@id/onboarding_navigation1"/>
+
+    </fragment>
+
+
+
+</navigation>

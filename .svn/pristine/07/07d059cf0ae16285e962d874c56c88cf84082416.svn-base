@@ -1,0 +1,11 @@
+package com.ekenya.echama.ui.group
+/**
+ * UNDER TESTING NOT YET USED IN PROD
+ */
+class ContactsModel (
+    val name:String,
+    val phoneNumber:String
+
+){
+    var role:String = "Member"
+}

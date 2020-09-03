@@ -1,0 +1,278 @@
+package com.ekenya.echama.ui.home
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ekenya.echama.MainActivity
+import com.ekenya.echama.R
+import com.ekenya.echama.adapter.TrxAdapter
+import com.ekenya.echama.model.Transaction
+import com.ekenya.echama.util.*
+import com.ekenya.echama.viewModel.GroupViewModel
+import com.ekenya.echama.viewModel.MainViewModel
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputLayout
+import okhttp3.internal.notifyAll
+import org.json.JSONObject
+import timber.log.Timber
+
+class MyWalletFragment : Fragment(), View.OnClickListener {
+
+    lateinit var myWalletVM: MainViewModel
+    lateinit var groupViewModel: GroupViewModel
+    lateinit var rcvRecentActivity : RecyclerView
+    lateinit var recentAdapter:TrxAdapter
+    lateinit var btnWithdraw:MaterialButton
+    lateinit var btnDeposit:MaterialButton
+    lateinit var btnNextTrx:Button
+    lateinit var imgLock:ImageView
+    lateinit var imgUnLock:ImageView
+    lateinit var lblWalletBalance:TextView
+    lateinit var txtWalletBalance:TextView
+    lateinit var lblWalletBalanceF:TextView
+    lateinit var txtUnlockBalance:TextView
+    lateinit var txtNoTrxDesc:TextView
+    lateinit var clWalletUnlock:ConstraintLayout
+    lateinit var clWalletLock:ConstraintLayout
+    var activityList:ArrayList<Transaction> = ArrayList()
+    //stores number of failed unlocking trials
+    var errorTrials:Int = 0
+    var page:Int = 0
+    var size:Int = 10
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_mywallet, container, false)
+        groupViewModel = ViewModelProvider(this).get(GroupViewModel::class.java)
+        myWalletVM = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        rcvRecentActivity =root.findViewById(R.id.rcvRecentActivity)
+        clWalletUnlock =root.findViewById(R.id.clWalletUnlock)
+        clWalletLock =root.findViewById(R.id.clWalletLock)
+        btnWithdraw =root.findViewById(R.id.btnWithdraw)
+        btnDeposit =root.findViewById(R.id.btnDeposit)
+        btnNextTrx =root.findViewById(R.id.btnNextTrx)
+        imgLock =root.findViewById(R.id.imgLock)
+        lblWalletBalance =root.findViewById(R.id.lblWalletBalance)
+        txtWalletBalance =root.findViewById(R.id.txtWalletBalance)
+        txtNoTrxDesc =root.findViewById(R.id.txtNoTrxDesc)
+        //
+        imgUnLock =root.findViewById(R.id.imgUnLock)
+        lblWalletBalanceF =root.findViewById(R.id.lblWalletBalanceF)
+        txtUnlockBalance =root.findViewById(R.id.txtUnlockBalance)
+
+
+
+        imgLock.setOnClickListener(this)
+        imgUnLock.setOnClickListener(this)
+        txtUnlockBalance.setOnClickListener(this)
+        btnNextTrx.setOnClickListener(this)
+
+
+        initData()
+        initRV()
+        initButton()
+
+        return root
+        
+    }
+    private fun unlockBalance() {
+        if(clWalletUnlock.visibility == View.GONE){
+            clWalletLock.visibility = View.GONE
+            clWalletUnlock.visibility = View.VISIBLE
+        }else{
+            clWalletLock.visibility = View.VISIBLE
+            clWalletUnlock.visibility = View.GONE
+        }
+    }
+
+    private fun initButton() {
+        btnWithdraw.setOnClickListener{
+            (this.activity as MainActivity).showInDevoplopmentDialogue()
+        }
+        btnDeposit.setOnClickListener{
+            (this.activity as MainActivity).showInDevoplopmentDialogue()
+        }
+    }
+
+    private fun initRV() {
+        rcvRecentActivity.layoutManager= LinearLayoutManager(context,RecyclerView.VERTICAL,false)
+        recentAdapter = TrxAdapter(this, activityList)
+        rcvRecentActivity.adapter = recentAdapter
+    }
+
+    private fun initData(){
+        myWalletVM.getUserDetails()
+
+        val userData = HashMap<String, String>()
+        userData["email"] =  "manduku.david@ekenya.co.ke"
+        userData["gender"] = "Male"
+        userData["firstname"] = "David"
+        userData["nationality"] = "Kenyan"
+        userData["identification"] = "280280280"
+        userData["phonenumber"] = "254719124626"
+       // myWalletVM.updateUserDetails(userData)
+
+        myWalletVM.getUserTransactions(page,size)
+        myWalletVM.userLD.observe(viewLifecycleOwner, Observer {users ->
+            Timber.v("users size"+users.size)
+            if(users.isNotEmpty()){
+                myWalletVM.currentUser = users[0]
+            }
+        })
+        myWalletVM.myApiResponseLD.observe(viewLifecycleOwner, Observer {
+            Timber.v("myApiResponseLD ${it.requestName} ${it.code} ${it.message}")
+
+            if(it.code == 200){
+                if(it.requestName.contentEquals("getUserTrxRequest")){
+                  var activityListAr =   it.responseObj as ArrayList<Transaction>
+                    if(activityListAr.isNotEmpty()){
+                        activityList = activityListAr
+                        rcvRecentActivity.adapter?.notifyAll()
+                        txtNoTrxDesc.visibility = View.GONE
+                        btnNextTrx.visibility = View.VISIBLE
+                    }else{
+                        txtNoTrxDesc.visibility = View.VISIBLE
+                        btnNextTrx.visibility = View.GONE
+                    }
+                }
+            }else{
+                if(it.message.isNotEmpty()) {
+                    ToastnDialog.toastError(this.requireContext(), it.message)
+                }
+            }
+            CustomProgressBar.hide()
+        })
+    }
+
+     fun getGroupInvites(json:JSONObject) {
+//            .observe(viewLifecycleOwner, Observer {
+//            when(it){
+//                is ViewModelWrapper.error -> Log.e("invitesError","error occurred"+it.error)
+//                is ViewModelWrapper.response -> handleGrpInvitesResponse(it.value)
+//            }
+//        })
+    }
+
+    private fun handleGrpInvitesResponse(value: String) {
+      //  val gson = GsonBuilder().create()
+        Timber.v(value)
+        if (value == "") {
+            //val groupdatajson = gson.fromJson(value, JsonElement::class.java)
+          //  val content =  groupdatajson.asJsonObject.get("content")//.asJsonArray.get(0).asJsonObject.get("memberGroups")//.asJsonArray.get(0).asJsonObject.get("name")
+            //val regionList= gson.fromJson(grplist,Array<AllGroupsModel.MemberGroups>::class.java).toList()
+//            Timber.v( content.toString())
+//            if (content.asJsonArray.size() > 0) {
+//                tvInvitationNumber.setText(content.asJsonArray.size().toString())
+//                val bundle = Bundle()
+//                bundle.putString("content", content.toString())
+//                Timber.v( "empty llist")
+//                fabInvites.setOnClickListener {
+//                    findNavController().navigate(
+//                        R.id.nav_show_invites,
+//                        bundle
+//                    )
+//                }
+//            } else {
+//                Toast.makeText(activity, "No Invites", Toast.LENGTH_SHORT)
+//            }
+
+        }
+    }
+
+    override fun onClick(v: View?) {
+        if (v != null) {
+            if( (v.id == R.id.btnNextTrx)){
+                //Todo fetching next user transaction data
+            }
+            if( (v.id == R.id.imgLock)){
+                unlockBalance()
+            }
+            if( (v.id == R.id.imgUnLock) || (v.id == R.id.imgUnLock)){
+                showUnlockDialogue()
+            }
+        }
+    }
+     fun showUnlockDialogue(title:String = "",message:String = ""){
+         val builder = AlertDialog.Builder(this.requireContext())
+         val mDialogView = LayoutInflater.from(this.requireContext()).inflate(R.layout.dialogue_layout, null)
+         builder.setView(mDialogView)
+        //set title for alert dialog
+        //builder.setTitle("In development")
+
+        //set message for alert dialog
+        // builder.setMessage("Do you want to log out ")
+        //builder.setIcon(android.R.drawable.ic_dialog_alert)
+        //performing positive action
+
+//        builder.setPositiveButton("Okay"){dialogInterface, _ ->
+//            dialogInterface.dismiss()
+//        }
+//        builder.setNegativeButton("Cancel"){ dialogInterface, which ->
+//            dialogInterface.dismiss()
+//        }
+
+         var tvDialogTitle: TextView =  mDialogView.findViewById(R.id.tvDialogTitle)
+         var tvDialogMessage: TextView =  mDialogView.findViewById(R.id.tvDialogMessage)
+         var tlPin: TextInputLayout =  mDialogView.findViewById(R.id.tlPin)
+         var etxtPin: EditText =  mDialogView.findViewById(R.id.etxtPin)
+         var btnReject: MaterialButton =  mDialogView.findViewById(R.id.btnReject)
+         var btnApprove: MaterialButton =  mDialogView.findViewById(R.id.btnApprove)
+         tvDialogTitle.text = "Enter Pin"
+         tvDialogMessage.text = "Enter your pin to view balance"
+         btnReject.text = "Cancel"
+         btnApprove.text = "Proceed"
+
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+
+         btnReject.setOnClickListener {
+             alertDialog.dismiss()
+         }
+         btnApprove.setOnClickListener {
+             if( etxtPin.text.length < 4){
+                 tlPin.error = "Invalid Pin"
+             }
+             //Todo confirm with user encrypted pin
+            // Timber.v("cpass "+myWalletVM.currentUser.pass)
+            // Timber.v("mypass "+etxtPin.text.toString().getHashedPin256())
+             if(errorTrials == 3){
+                 alertDialog.dismiss()
+                 expiredTokenDialogue()
+             }else {
+                 if (etxtPin.text.toString().getHashedPin256()
+                         .contentEquals(myWalletVM.currentUser.pass.toString())
+                 ){
+                     unlockBalance()
+                     alertDialog.dismiss()
+                 } else {
+                     errorTrials += 1
+                     tlPin.error = "Incorrect Pin. ${4 - errorTrials } trials remaining"
+                 }
+             }
+
+         }
+        // Set other dialog properties
+
+        alertDialog.setCancelable(true)
+        alertDialog.show()
+    }
+
+
+}
