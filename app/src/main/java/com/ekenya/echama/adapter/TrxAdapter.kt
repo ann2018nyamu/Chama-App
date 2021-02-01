@@ -21,12 +21,10 @@ class TrxAdapter(val context: Fragment, val activityList:List<Transaction>):Recy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentActivityViewHolder {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         return RecentActivityViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_recent_activity,parent,false))
     }
 
     override fun getItemCount(): Int {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         return activityList.size
     }
 

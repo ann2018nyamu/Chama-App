@@ -73,14 +73,14 @@ object RestClient {
     }
 
     var spec: ConnectionSpec = ConnectionSpec.Builder(ConnectionSpec.RESTRICTED_TLS)
-//        .tlsVersions(TlsVersion.TLS_1_3, TlsVersion.TLS_1_2)
-        .cipherSuites(
+        .tlsVersions(TlsVersion.TLS_1_3, TlsVersion.TLS_1_2)
+      //  .cipherSuites(
 //            CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
 //            CipherSuite.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
-            CipherSuite.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+ //           CipherSuite.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,
 //            CipherSuite.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,
 //            CipherSuite.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-        )
+ //       )
         .build()
 
 
