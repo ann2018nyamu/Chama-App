@@ -19,6 +19,7 @@ object RestClient {
     init {
         setRetrofitClient()
     }
+
      val authInterceptor = Interceptor {chain->
 
         var request = chain.request()
@@ -29,6 +30,7 @@ object RestClient {
         }else{
 
         }
+
         request = request.newBuilder()
             .addHeader("Authorization",headerStrValue)
 
