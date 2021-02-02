@@ -87,6 +87,7 @@ class MainViewModel:ViewModel() {
      */
      fun userlogin1(hData: HashMap<String, String>){
         currentUser.pass= DataUtil.getHashedPin256(hData["password"].toString())
+        hData["password"] =  currentUser.pass!!
         userRepository.getUser(hData)
     }
 //    suspend fun userlogin(json: JSONObject){
@@ -110,8 +111,10 @@ class MainViewModel:ViewModel() {
      * @param JsonObjject
      */
      fun changePassword(json:HashMap<String,String>){
-        currentUser.pass= DataUtil.getHashedPin256(json["password"].toString())
-         userRepository.updatePassword(json)
+        json["password"] = DataUtil.getHashedPin256(json["password"].toString())!!
+        currentUser.pass = currentUser.pass
+
+        userRepository.updatePassword(json)
 
     }
 

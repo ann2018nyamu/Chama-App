@@ -24,7 +24,7 @@ class SplashFragment : Fragment() {
         val root:View= inflater.inflate(R.layout.fragment_splash, container, false)
 
         GlobalScope.launch(Dispatchers.Main) {
-            delay(2000)
+           // delay(2000)
 
             findNavController().navigate(R.id.to_onboarding_navigation)
         }

@@ -107,6 +107,7 @@ class UploadDocumentFragment : Fragment() {
             }
         }
         btnInviteMembers.setOnClickListener {
+
             findNavController().navigateUp()
         }
 

@@ -76,8 +76,6 @@ class MainActivity : AppCompatActivity(),
         }
     }
     private fun getMyPermission(){
-
-
         mainViewModel.getMemberPermission()
     }
 

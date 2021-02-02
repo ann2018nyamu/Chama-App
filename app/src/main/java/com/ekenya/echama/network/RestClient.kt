@@ -27,8 +27,6 @@ object RestClient {
         if(request.url.toString().contains("token")){
            //ToDo use constant on the basic token  AppConstants.auth_url_token
             headerStrValue = "Basic Y2hhbWFfY2xpZW50aWQ6WTJoaGJXRnpaV055WlhRPQ=="
-        }else{
-
         }
 
         request = request.newBuilder()

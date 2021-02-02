@@ -18,7 +18,6 @@ import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
-
     lateinit var viewPAdapter : MyPagerAdapter
     lateinit var tabLayout : TabLayout
     lateinit var viewPager : ViewPager

@@ -122,7 +122,7 @@ class OtpFragment : Fragment() {
             otpMainVM.currentUser.otp = mConfirmPin.toString()
             otpJson.put("otp",  mConfirmPin?.toInt() as Any)
             otpJson.put("phonenumber", otpMainVM.currentUser.phonenumber)
-           CustomProgressBar.show(this.requireContext())
+            CustomProgressBar.show(this.requireContext())
             otpMainVM.validateOtp(otpJson)
             }
         initData()

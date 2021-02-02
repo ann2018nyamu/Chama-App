@@ -313,12 +313,7 @@ interface Webservice {
     fun gettodoLst(@HeaderMap headers: Map<String, String>, @Body body: RequestBody):List<String>
     //mobile/config/get-nationalites
 
-
-
-
-
     @POST("chama/mobile/config/get-regions")
-
     fun getConfigRegion(@HeaderMap headers: Map<String, String>, @Body body: RequestBody):ResponseWrapper
 
 
